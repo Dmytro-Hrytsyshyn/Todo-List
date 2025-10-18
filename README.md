@@ -1,39 +1,40 @@
-To-Do List
+📝 To-Do List
 
+🌐 Live Demo
 
-This is a simple To-Do List web app that allows you to add, search, and delete tasks. The project is built with HTML, CSS, and JavaScript (ES6) and runs directly in the browser without a backend.
+A simple and interactive To-Do List web app built with HTML, CSS, and JavaScript (ES6). Keep track of your tasks, search through them, and manage your list efficiently — all directly in your browser.
 
-Features
+✨ Features
 
-Add new tasks
+✅ Add new tasks quickly
 
-Search tasks by name
+🔍 Search tasks by name
 
-Delete individual tasks or all at once
+🗑️ Delete individual tasks or clear all at once
 
-Display total number of tasks
+📊 See the total number of tasks
 
-Show a message when the list is empty
+💬 Display a message when the list is empty
 
-Simple and responsive design
+📱 Responsive and clean design
 
-Technology Stack
+🛠 Technology Stack
 
-HTML5
+HTML5 – semantic markup
 
-CSS3
+CSS3 – styling and layout
 
-JavaScript (ES6 Modules)
+JavaScript (ES6 Modules) – interactive logic
 
-GitHub Pages for hosting
+GitHub Pages – free hosting
 
-Usage
+🚀 Getting Started
 
 Clone the repository:
 
 git clone https://github.com/Dmytro-Hrytsyshyn/Todo-List.git
 
 
-Open index.html in your browser or run it with Live Server.
+Open index.html in your browser, or run it using Live Server.
 
-Add tasks, search, or delete them as needed.
+Start adding tasks and manage your to-do list!
