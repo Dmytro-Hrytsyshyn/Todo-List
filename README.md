@@ -1,6 +1,5 @@
 📝 To-Do List
 
-🌐 Live Demo
 
 A simple and interactive To-Do List web app built with HTML, CSS, and JavaScript (ES6). Keep track of your tasks, search through them, and manage your list efficiently — all directly in your browser.
 
