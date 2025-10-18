@@ -13,7 +13,6 @@ class Todo {
     itemLabel: "[data-js-todo-item-label]",
     itemDeleteButton: "[data-js-todo-item-delete-button]",
     emptyMessage: "[data-js-todo-empty-message]",
-    itemEditInput: "[data-js-todo-item-edit-input]",
   };
 
   stateClasses = { isVisible: "is-visible", isDisappearing: "is-disappearing" };
@@ -85,26 +84,19 @@ class Todo {
     this.listElement.innerHTML = items
       .map(
         ({ id, title, isChecked }) => `
-      <li class="todo_item todo-item" data-js-todo-item data-id="${id}">
-        <input
-          class="todo_item_checkbox"
-          id="${id}"
-          type="checkbox"
-          ${isChecked ? "checked" : ""}
-          data-js-todo-item-checkbox
-        />
-        <label class="todo-item_label" data-js-todo-item-label>${title}</label>
-        <input
-          class="todo-item_edit-input"
-          type="text"
-          value="${title}"
-          data-js-todo-item-edit-input
-          style="display:none"
-        />
-        <button class="todo-item_delete-button" type="button" data-js-todo-item-delete-button>
-          ✕
-        </button>
-      </li>`
+        <li class="todo_item todo-item" data-js-todo-item>
+          <input
+            class="todo_item_checkbox"
+            id="${id}"
+            type="checkbox"
+            ${isChecked ? "checked" : ""}
+            data-js-todo-item-checkbox
+          />
+          <label class="todo-item_label" for="${id}" data-js-todo-item-label>${title}</label>
+          <button class="todo-item_delete-button" type="button" data-js-todo-item-delete-button>
+            ✕
+          </button>
+        </li>`
       )
       .join("");
 
@@ -208,39 +200,6 @@ class Todo {
       this.toggleCheckedState(target.id);
     }
   };
-
-  enableEditMode(labelElement) {
-    const itemElement = labelElement.closest(this.selectors.item);
-    const input = itemElement.querySelector(this.selectors.itemEditInput);
-
-    labelElement.style.display = "none";
-    input.style.display = "";
-    input.focus();
-
-    const cancel = () => {
-      input.style.display = "none";
-      labelElement.style.display = "";
-    };
-
-    const save = () => {
-      const newTitle = input.value.trim();
-      if (newTitle) {
-        const id = itemElement.querySelector(this.selectors.itemCheckbox).id;
-        this.state.items = this.state.items.map((item) =>
-          item.id === id ? { ...item, title: newTitle } : item
-        );
-        this.saveItemsToLocalStorage();
-        this.render();
-      } else cancel();
-    };
-
-    input.onkeydown = (e) => {
-      if (e.key === "Enter") save();
-      if (e.key === "Escape") cancel();
-    };
-
-    input.onblur = save;
-  }
 
   bindEvents() {
     this.newTaskFormElement.addEventListener(
